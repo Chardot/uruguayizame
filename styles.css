@@ -20,8 +20,97 @@ html {background-color: #76abda;}
 
 body {text-align: center;}
 
+.wrapper {
+  display: block;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* Elements */
+
 .logo {
   font-family: 'Bungee', sans-serif;
   color: white;
-  text-shadow: 0 0 0 4px #476783;
+  text-shadow:
+    0 4px 0 #476783,
+    4px 0 0 #476783,
+    0 -4px 0 #476783,
+    -4px 0 0 #476783,
+    4px 4px 0 #476783,
+    4px -4px 0 #476783,
+    -4px 4px 0 #476783,
+    -4px -4px 0 #476783
+  ;
 }
+
+/* Input */
+
+.field {
+  position: relative;
+}
+
+#inputText {
+  margin: 0;
+  width: 100%;
+  font-family: 'Bungee', sans-serif;
+  text-transform: uppercase;
+  line-height: 40px;
+  font-size: 1.1em;
+  color: #476783;
+  background-color: #bbd5ed;
+  border: 4px solid #476783;
+  border-radius: 4px;
+  padding: 0 145px 0 15px;
+  box-shadow: 0 4px 0 0 #95b3d0 inset;
+}
+
+/* Fixes opacity issue on Firefox */
+#inputText::-moz-placeholder {opacity: 1;}
+
+/* Cross-browser input placeholder styles */
+
+#inputText::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #476783;
+}
+#inputText::-moz-placeholder { /* Firefox 19+ */
+  color: #476783;
+}
+#inputText:-ms-input-placeholder { /* IE 10+ */
+  color: #476783;
+}
+#inputText:-moz-placeholder { /* Firefox 18- */
+  color: #476783;
+}
+
+#inputText:focus {background-color: white;}
+
+/* Button */
+
+#submit {
+  margin: 0;
+  padding: 0;
+  border: 4px solid #476783;
+  border-radius: 0 4px 4px 0;
+  background-color: #fcd95f;
+  box-shadow: inset 0 20px 0 #fde885;
+  font-family: 'Bungee', sans-serif;
+  font-size: 1em;
+  color: #476783;
+  text-shadow: 0 2px 0 #feecaf;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 140px;
+}
+
+/* Translated Paragraph */
+
+#result {
+  font-family: 'Bungee', sans-serif;
+  color: #476783;
+  font-size: 1.6em;
+}
+
+
+
