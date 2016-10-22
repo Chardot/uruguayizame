@@ -1,0 +1,27 @@
+/* Uruguayiza.me styles by Crafted */
+
+/* Box Sizing */
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Clearfix */
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Body and layout */
+
+html {background-color: #76abda;}
+
+body {text-align: center;}
+
+.logo {
+  font-family: 'Bungee', sans-serif;
+  color: white;
+  text-shadow: 0 0 0 4px #476783;
+}
