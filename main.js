@@ -54,7 +54,7 @@ jQuery( document ).ready(function( $ ) {
         firstWord = firstWord.replace(',','');
         var lastWord = arr[arr.length - 1];
         lastWord = lastWord.replace(',','');
-        if (firstWord == rand.pref || lastWord == rand.suf){
+        if (firstWord == rand.pref || lastWord == rand.suf || (firstWord.toLowerCase() == "hola" && rand.pref == "pah")) {
             rand = prefsuf[Math.floor(Math.random() * prefsuf.length)];
             addprefixandsuffix();
         }
