@@ -1,6 +1,9 @@
 var map = [];
+var prefsuf = [];
+var resultText = '';
 
 jQuery( document ).ready(function( $ ) {
+
 	$.ajax({
 		url: "https://spreadsheets.google.com/feeds/list/1hyX9RIS9cza_WXLYCParWALZIfSnmpt0qSb5xszGfog/1/public/values?alt=json",
         success: function( result ) {
@@ -13,14 +16,21 @@ jQuery( document ).ready(function( $ ) {
             }
 		}
 	});
-}); 
 
-$(document).ready(function() {
-    function escapeRegExp (s) {
-        return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-    };
+    $.ajax({
+		url: "https://spreadsheets.google.com/feeds/list/1SihOU4ehrRBIdhgb0jEHkFGQwzUpkrjb7mNbNDJjkmk/1/public/values?alt=json",
+        success: function( result ) {
+            var a = result.feed.entry;
+            for (index = 0; index < a.length; ++index) {
+                var e = new Object();
+                e.pref = result.feed.entry[index]['gsx$pref']['$t'];
+                e.suf = result.feed.entry[index]['gsx$suf']['$t']
+                prefsuf.push(e);
+            }
+		}
+	});
 
-    function transform (){
+    function substitutions (){
         var userinput = $("#inputText").val();
         $.grep(map, function(e){
             if (userinput.search(new RegExp(' '+ e.input + ' ', "i")) == -1 ||
@@ -29,22 +39,42 @@ $(document).ready(function() {
                 userinput.search(new RegExp(e.input + ',', "i")) == -1){
                 var res = userinput.replace(new RegExp(e.input, 'gi'), e.output);
                 userinput = res;
-                $("#result").text(userinput);
+                resultText = userinput;
             } 
             else{
-                $("#result").text(userinput);
+                resultText = userinput;
             }
         });
     }
 
+    function addprefixandsuffix (){
+        var rand = prefsuf[Math.floor(Math.random() * prefsuf.length)];
+        var arr = resultText.split(' ');
+        var firstWord = arr[0];
+        firstWord = firstWord.replace(',','');
+        var lastWord = arr[arr.length - 1];
+        lastWord = lastWord.replace(',','');
+        if (firstWord == rand.pref || lastWord == rand.suf){
+            rand = prefsuf[Math.floor(Math.random() * prefsuf.length)];
+            addprefixandsuffix();
+        }
+        else{
+            resultText = rand.pref + ", " + resultText + ", " + rand.suf;
+        }
+    }
+
     $('#inputText').bind('keypress', function(e){
         if ( e.keyCode == 13 ) {
-            transform();
+            substitutions();
+            addprefixandsuffix();
+            $("#result").text(resultText);
         }
     });
 
     $("#submit").click(function() {
-        transform();
+        substitutions();
+        addprefixandsuffix();
+        $("#result").text(resultText);
     });
 
 });
