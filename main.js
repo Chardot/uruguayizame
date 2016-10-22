@@ -70,6 +70,8 @@ jQuery( document ).ready(function( $ ) {
             substitutions();
             addprefixandsuffix();
         }
+        $("#result").removeClass("hide");
+        $("#result").addClass("show");
         $("#result").text(resultText);
     }
 
