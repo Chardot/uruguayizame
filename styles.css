@@ -114,10 +114,18 @@ body {text-align: center;}
 
 /* Translated Paragraph */
 
+.hide {display: none;}
+
+.show {display: block;}
+
 #result {
   font-family: 'Bungee', sans-serif;
   color: #476783;
   font-size: 1.6em;
+  background-color: white;
+  border: 4px solid #95b3d0;
+  border-radius: 4px;
+  padding: 60px 30px;
 }
 
 
