@@ -68,7 +68,9 @@ jQuery( document ).ready(function( $ ) {
             resultText = "escribí algo, ahí";
         }else{
             substitutions();
-            addprefixandsuffix();
+            if (resultText.split(' ').length > 3){
+                addprefixandsuffix();
+            }
         }
         $("#result").removeClass("hide");
         $("#result").addClass("show");
