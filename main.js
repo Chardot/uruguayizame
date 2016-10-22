@@ -63,18 +63,24 @@ jQuery( document ).ready(function( $ ) {
         }
     }
 
-    $('#inputText').bind('keypress', function(e){
-        if ( e.keyCode == 13 ) {
+    function setInput(){
+        if ($("#inputText").val() == ''){
+            resultText = "escribi algo, ahí";
+        }else{
             substitutions();
             addprefixandsuffix();
-            $("#result").text(resultText);
+        }
+        $("#result").text(resultText);
+    }
+
+    $('#inputText').bind('keypress', function(e){
+        if ( e.keyCode == 13 ) {
+            setInput();
         }
     });
 
     $("#submit").click(function() {
-        substitutions();
-        addprefixandsuffix();
-        $("#result").text(resultText);
+        setInput();
     });
 
 });
