@@ -20,7 +20,7 @@ $(document).ready(function() {
         return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
     };
 
-    $("#submit").click(function() {
+    function transform (){
         var userinput = $("#inputText").val();
         $.grep(map, function(e){
             if (userinput.search(new RegExp(' '+ e.input + ' ', "i")) == -1 ||
@@ -35,7 +35,16 @@ $(document).ready(function() {
                 $("#result").text(userinput);
             }
         });
-        
+    }
+
+    $('#inputText').bind('keypress', function(e){
+        if ( e.keyCode == 13 ) {
+            transform();
+        }
+    });
+
+    $("#submit").click(function() {
+        transform();
     });
 
 });
