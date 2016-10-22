@@ -65,7 +65,7 @@ jQuery( document ).ready(function( $ ) {
 
     function setInput(){
         if ($("#inputText").val() == ''){
-            resultText = "escribi algo, ahí";
+            resultText = "escribí algo, ahí";
         }else{
             substitutions();
             addprefixandsuffix();
