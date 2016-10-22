@@ -21,13 +21,19 @@ $(document).ready(function() {
     };
 
     $("#submit").click(function() {
+        var userinput = $("#inputText").val();
         $.grep(map, function(e){
-            var userinput = $("#inputText").val();
-            if (userinput.toLowerCase().indexOf(' '+ e.input + ' ') !== -1 ||
-                userinput.toLowerCase().indexOf(' '+ e.input) !== -1 ||
-                userinput.toLowerCase().indexOf(e.input + ' ') !== -1 ){
-                $("#result").text(userinput.replace(e.input, e.output));
+            if (userinput.search(new RegExp(' '+ e.input + ' ', "i")) == -1 ||
+               userinput.search(new RegExp(' '+ e.input, "i")) == -1 ||
+               userinput.search(new RegExp(e.input + ' ', "i")) == -1 ||
+                userinput.search(new RegExp(e.input + ',', "i")) == -1){
+                var res = userinput.replace(new RegExp(e.input, 'gi'), e.output);
+                userinput = res;
+                $("#result").text(userinput);
             } 
+            else{
+                $("#result").text(userinput);
+            }
         });
         
     });
