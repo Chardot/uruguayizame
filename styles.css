@@ -262,7 +262,7 @@ footer {
   }
 
   #reset {
-    text-indent: -1000px;
+    text-indent: -9999px;
     width: 24px;
     height: 24px;
     background-image: url(erase.svg);
