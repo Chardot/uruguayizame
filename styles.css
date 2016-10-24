@@ -16,6 +16,11 @@
 
 /* Body and layout */
 
+html, body {
+  display: block;
+  min-height: 100%;
+}
+
 html {background-color: #76abda;}
 
 body {text-align: center;}
@@ -146,6 +151,13 @@ a {text-decoration: none;}
   color: #476783;
   font-size: 1.6em;
   background-color: white;
+  background-image:
+    url(open-quote.svg),
+    url(close-quote.svg)
+  ;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: top 15px left 15px, bottom 15px right 15px;
   border: 4px solid #476783;
   border-radius: 4px;
   padding: 60px 30px;
@@ -220,7 +232,65 @@ footer {
   margin: 30px auto 0;
 }
 
+@media screen and (max-width: 650px) {
 
+  body {
+    margin: 0;
+    padding: 0 15px;
+  }
+
+  .logo {margin: 30px 0 30px;}
+
+  .field {height: 92px;}
+
+  #inputText {
+    border-radius: 4px 4px 0 0;
+    padding: 0 30px 0 10px;
+  }
+
+  #submit {
+    top: 44px;
+    bottom: auto;
+    height: 48px;
+    width: 100%;
+    border-radius: 0 0 4px 4px;
+  }
+
+  #submit:active {
+    top: 48px;
+    height: 44px;
+  }
+
+  #reset {
+    text-indent: -1000px;
+    width: 24px;
+    height: 24px;
+    background-image: url(erase.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    top: 14px;
+    right: 8px;
+  }
+
+  #result {
+    font-size: 1.3em;
+    padding: 30px 15px;
+    max-height: 40vh;
+  }
+
+  #result.hide + .intro {
+    padding: 0;
+    margin-top: 30px;
+    font-size: 1.1em;
+    line-height: 1.7em;
+  }
+
+  #result:after {
+    right: 50%;
+    -webkit-transform: translateX(50%) !important;
+  }
+
+}
 
 
 
