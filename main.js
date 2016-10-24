@@ -72,6 +72,10 @@ jQuery( document ).ready(function( $ ) {
                 addprefixandsuffix();
             }
         }
+        var shareText = resultText.replace(new RegExp(' ', 'gi'), '%20');
+        shareText =  '"' + shareText.toUpperCase() + '"';
+        var share_url = "https://twitter.com/intent/tweet?url=http%3A%2F%2Furuguayiza.me&text=" + shareText + "%20vía" + "&original_referer=";
+        $("#twitterBtn").attr('href', share_url);
         $("#result").removeClass("hide");
         $("#result").addClass("show");
         $("#result").text(resultText);
@@ -85,6 +89,11 @@ jQuery( document ).ready(function( $ ) {
 
     $("#submit").click(function() {
         setInput();
+    });
+
+    $("#reset").click(function() {
+        $("#inputText").val('');
+        $("#inputText").focus();
     });
 
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

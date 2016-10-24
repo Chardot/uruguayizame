@@ -31,6 +31,7 @@ body {text-align: center;}
 a {text-decoration: none;}
 
 .logo {
+  margin: 50px 0 30px;
   font-family: 'Bungee', sans-serif;
   color: white;
   text-shadow:
@@ -57,12 +58,12 @@ a {text-decoration: none;}
   font-family: 'Bungee', sans-serif;
   text-transform: uppercase;
   line-height: 40px;
-  font-size: 1.1em;
+  font-size: 1em;
   color: #476783;
   background-color: #bbd5ed;
   border: 4px solid #476783;
   border-radius: 4px;
-  padding: 0 145px 0 15px;
+  padding: 0 225px 0 15px;
   box-shadow: 0 4px 0 0 #95b3d0 inset;
 }
 
@@ -114,6 +115,25 @@ a {text-decoration: none;}
   border-top: none;
 }
 
+#reset {
+  position: absolute;
+  top: 4px;
+  right: 150px;
+  border: none;
+  background: none;
+  font-family: 'Bungee', sans-serif;
+  color: #95b3d0;
+  font-size: 1em;
+  line-height: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+#reset:hover, #reset:active {
+  cursor: pointer;
+  color: #476783;
+}
+
 /* Translated Paragraph */
 
 .hide {display: none;}
@@ -121,26 +141,71 @@ a {text-decoration: none;}
 .show {display: block;}
 
 #result {
+  position: relative;
   font-family: 'Bungee', sans-serif;
   color: #476783;
   font-size: 1.6em;
   background-color: white;
-  border: 4px solid #95b3d0;
+  border: 4px solid #476783;
   border-radius: 4px;
   padding: 60px 30px;
 }
 
+#result:after {
+  content: '';
+  position: absolute;
+  background-image: url(bubble.svg);
+  width: 32px;
+  height: 23px;
+  top: -22px;
+  right: 50px;
+}
+
+/* Intro */
+
+#result.hide + .intro {
+  position: relative;
+  font-family: 'Bungee', sans-serif;
+  color: #bbd5ed;
+  text-shadow:
+    0 4px 0 #476783,
+    4px 0 0 #476783,
+    0 -4px 0 #476783,
+    -4px 0 0 #476783,
+    4px 4px 0 #476783,
+    4px -4px 0 #476783,
+    -4px 4px 0 #476783,
+    -4px -4px 0 #476783
+  ;
+  font-size: 1.4em;
+  padding: 30px 0;
+  font-weight: lighter;
+}
+
+#result.show + .intro {display: none;}
+
 /* Share Icons */
+
+.share {
+  float: left;
+  line-height: 48px;
+  font-family: 'Bungee', sans-serif;
+  color: #476783;
+}
 
 .share-icon {
   display: block;
+  float: left;
   cursor: pointer;
-  width: 68px;
-  height: 68px;
+  width: 48px;
+  height: 48px;
   background-color: white;
   border-radius: 50%;
   padding: 4px;
+  margin-left: 15px;
 }
+
+.share-icon:hover {background-color: #fcd95f;}
 
 .share-icon img {
   display: block;
@@ -148,7 +213,12 @@ a {text-decoration: none;}
   cursor: pointer;
 }
 
+/* Footer */
 
+footer {
+  display: inline-block;
+  margin: 30px auto 0;
+}
 
 
 
