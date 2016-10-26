@@ -16,13 +16,17 @@
 
 /* Body and layout */
 
+html {height: 100%;}
+
+body {
+  min-height: 100%;
+  text-align: center;
+}
+
 html, body {
   background-color: #76abda;
   display: block;
-  min-height: 100%;
 }
-
-body {text-align: center;}
 
 .wrapper {
   display: block;
