@@ -17,11 +17,10 @@
 /* Body and layout */
 
 html, body {
+  background-color: #76abda;
   display: block;
   min-height: 100%;
 }
-
-html {background-color: #76abda;}
 
 body {text-align: center;}
 
