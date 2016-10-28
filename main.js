@@ -32,12 +32,13 @@ jQuery( document ).ready(function( $ ) {
 
     function substitutions (){
         var userinput = $("#inputText").val();
+         
         $.grep(map, function(e){
             if (userinput.search(new RegExp(' '+ e.input + ' ', "i")) == -1 ||
                userinput.search(new RegExp(' '+ e.input, "i")) == -1 ||
                userinput.search(new RegExp(e.input + ' ', "i")) == -1 ||
                 userinput.search(new RegExp(e.input + ',', "i")) == -1){
-                var res = userinput.replace(new RegExp(e.input, 'gi'), e.output);
+                var res = userinput.replace(new RegExp(`\\b${e.input}\\b`, 'gi'), e.output);
                 userinput = res;
                 resultText = userinput;
             } 
